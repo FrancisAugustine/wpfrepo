@@ -68,7 +68,6 @@ namespace WpfApplication1
             }
             gridview.DataContext = data.DefaultView;
             //gridview.Items.Refresh();
-
             System.Timers.Timer aTimer = new System.Timers.Timer();
             aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
             // Set the Interval to 5 seconds.         
@@ -76,10 +75,21 @@ namespace WpfApplication1
             aTimer.Enabled = true;
         }
 
-        public static void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
+        public void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
         {
-            MainWindow tabledata = new MainWindow();
-            tabledata.gridview.Items.Refresh();
+            /*MainWindow tabledata = new MainWindow();
+            tabledata.Dispatcher.BeginInvoke
+                (System.Windows.Threading.DispatcherPriority.Normal,                
+                (Action)(() => 
+                {
+                    tabledata.gridview.Items.Refresh();                    //---or do any thing u want with that form               
+                }                
+                ));*/
+            
+            Application.Current.Dispatcher.Invoke((Action)delegate 
+            {
+                gridview.Items.Refresh();
+            });
         }
     }
 }
