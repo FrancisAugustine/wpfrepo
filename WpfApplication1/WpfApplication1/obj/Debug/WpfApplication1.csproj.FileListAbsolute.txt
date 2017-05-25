@@ -1,0 +1,16 @@
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csprojResolveAssemblyReference.cache
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.baml
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.g.cs
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\App.g.cs
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csproj.GenerateResource.Cache
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.pdb
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.exe
+d:\users\augustinediraviam.f\documents\visual studio 2013\Projects\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.pdb
+D:\Users\augustinediraviam.f\Documents\Visual Studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\System.Net.Http.Formatting.dll
+D:\Users\augustinediraviam.f\Documents\Visual Studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\Newtonsoft.Json.dll
+D:\Users\augustinediraviam.f\Documents\Visual Studio 2013\Projects\WpfApplication1\WpfApplication1\bin\Debug\System.Net.Http.Formatting.xml
