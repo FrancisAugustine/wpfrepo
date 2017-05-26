@@ -28,17 +28,26 @@ namespace WpfApplication1
         public MainWindow()
         {
             InitializeComponent();
+            //Timer control
+            System.Timers.Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
+            // Set the Interval to 5min.         
+            aTimer.Interval = 50000;
+            aTimer.Enabled = true;
+        }
 
+        public void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
+        {
             ServiceReference1.ServiceNowSoapClient soapClient = new ServiceReference1.ServiceNowSoapClient();
             soapClient.ClientCredentials.UserName.UserName = "admin";
             soapClient.ClientCredentials.UserName.Password = "Administrator@123";
-    
+
             ServiceReference1.getRecords Records = new ServiceReference1.getRecords();
             ServiceReference1.getRecordsResponseGetRecordsResult[] Results = soapClient.getRecords(Records);
 
             DataTable data = new DataTable();
             data.TableName = "ServiceNow Incidents";
-            data.Columns.AddRange(new DataColumn[]{new DataColumn("Number"),  
+            data.Columns.AddRange(new DataColumn[]{new DataColumn("Number"),
                                                      new DataColumn("Opened"),
                                                      new DataColumn("Short Description"),
                                                      new DataColumn("Caller"),
@@ -66,28 +75,10 @@ namespace WpfApplication1
                 row["Updated By"] = Results[i].sys_updated_by;
                 data.Rows.Add(row);
             }
-            gridview.DataContext = data.DefaultView;
-            //gridview.Items.Refresh();
-            System.Timers.Timer aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
-            // Set the Interval to 5 seconds.         
-            aTimer.Interval = 5000;
-            aTimer.Enabled = true;
-        }
 
-        public void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
-        {
-            /*MainWindow tabledata = new MainWindow();
-            tabledata.Dispatcher.BeginInvoke
-                (System.Windows.Threading.DispatcherPriority.Normal,                
-                (Action)(() => 
-                {
-                    tabledata.gridview.Items.Refresh();                    //---or do any thing u want with that form               
-                }                
-                ));*/
-            
             Application.Current.Dispatcher.Invoke((Action)delegate 
             {
+                gridview.DataContext = data.DefaultView;
                 gridview.Items.Refresh();
             });
         }
