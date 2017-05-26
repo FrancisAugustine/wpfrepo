@@ -25,14 +25,22 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool haveIRunMyMethod = false;
         public MainWindow()
         {
             InitializeComponent();
+
+            if (!haveIRunMyMethod)
+            {
+                
+                this.haveIRunMyMethod = true;
+            }  
+  
             //Timer control
             System.Timers.Timer aTimer = new System.Timers.Timer();
             aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
             // Set the Interval to 5min.         
-            aTimer.Interval = 50000;
+            aTimer.Interval = 600000;
             aTimer.Enabled = true;
         }
 
