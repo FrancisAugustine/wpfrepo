@@ -61,21 +61,43 @@ namespace WpfApplication1
                                                      new DataColumn("Updated On"),
                                                      new DataColumn("Updated By")});
 
-            for (int i = 0; i < Results.Length; i++)
+            foreach (ServiceReference1.getRecordsResponseGetRecordsResult Result in Results)
             {
-                DataRow row = data.NewRow();
-                row["Number"] = Results[i].number;
-                row["Opened"] = Results[i].opened_at;
-                row["Short Description"] = Results[i].short_description;
-                row["Caller"] = Results[i].caller_id;
-                row["Priority"] = Results[i].priority;
-                row["State"] = Results[i].state;
-                row["Category"] = Results[i].category;
-                row["Assigned Group"] = Results[i].assignment_group;
-                row["Assigned To"] = Results[i].assigned_to;
-                row["Updated On"] = Results[i].sys_updated_on;
-                row["Updated By"] = Results[i].sys_updated_by;
-                data.Rows.Add(row);
+                DataRow newRow = data.NewRow();
+                newRow["Number"] = Result.number;
+                newRow["Opened"] = Result.opened_at;
+                newRow["Short Description"] = Result.short_description;
+                newRow["Caller"] = Result.caller_id;
+                newRow["Priority"] = Result.priority;
+                newRow["State"] = Result.state;
+                newRow["Assigned Group"] = Result.assignment_group;
+                newRow["Assigned To"] = Result.assigned_to;
+                newRow["Updated On"] = Result.sys_updated_on;
+                newRow["Updated By"] = Result.sys_updated_by;
+
+                //var rows = DataGrid.ItemsControlFromItemContainer(Result) as DataGridRow;                
+                var rows = gridview.ItemContainerGenerator.ContainerFromItem(Result) as DataGridRow;
+                if (Result.state == "1")
+                {
+                    if (Result.priority == "1")
+                    {
+                        rows.Background = Brushes.Red;
+                    }
+                    else if (Result.priority == "2")
+                    {
+                        rows.Background = Brushes.Yellow;
+                    }
+                    else if (Result.priority == "3")
+                    {
+                        //rows.Background = Brushes.Green;
+                    }
+                    else if (Result.priority == "4")
+                    {
+                        rows.Background = Brushes.Green;
+                    }
+                }
+                // Add the row to the rows collection.                
+                data.Rows.Add(newRow);
             }
 
             Application.Current.Dispatcher.Invoke((Action)delegate 
